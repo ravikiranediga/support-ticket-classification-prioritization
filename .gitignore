@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.html
+.coverage.*
+cache/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Models & Large Data - KEEP for portfolio (pre-trained)
+# Uncomment below to exclude from git if needed
+# models/*.pkl
+# reports/*.png
+
+# User data (ignore raw/processed subfolders)
+data/raw/
+data/processed/
+# But keep main dataset
+!data/*.csv
+
+# Streamlit
+.streamlit/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# Temporary
+tmp/
+temp/
