@@ -153,33 +153,6 @@ streamlit run src/app.py
 ```
 Classify tickets in real-time with a clean UI.
 
-### Python API
-```python
-from src.model import TicketClassifier
-
-# Load pre-trained models
-type_clf = TicketClassifier.load('Ticket Type')
-priority_clf = TicketClassifier.load('Ticket Priority')
-
-# Predict single ticket
-subject = "Cannot login to my account"
-description = "Forgot password, urgent help needed"
-
-type_result = type_clf.predict(subject, description)
-# {'prediction': 'Technical issue', 'confidence': 1.234}
-
-priority_result = priority_clf.predict(subject, description)
-# {'prediction': 'High', 'confidence': 0.567}
-```
-
-### Command Line (Alternative)
-```bash
-# Train both models
-python src/train.py
-
-# Generates models/ and reports/ automatically
-```
-
 ---
 
 ## 📋 Requirements
@@ -312,24 +285,6 @@ Shows per-class accuracy, common misclassifications (Refund↔Cancellation).
 Shows priority distribution errors (High↔Medium common)
 ```
 
-## 🔄 Retraining & Updates
-
-### When to Retrain
-- Monthly with new labeled data
-- After significant label distribution shift
-- When adding new ticket categories
-
-### How to Retrain
-```bash
-# 1. Ensure new data in data/customer_support_tickets.csv
-# 2. Run training
-python src/train.py
-
-# 3. Verify app loads new models
-streamlit run src/app.py
-```
----
-
 ## ⚠️ Limitations & Future Work
 
 ### Current Limitations
@@ -357,6 +312,13 @@ streamlit run src/app.py
 - **IT Helpdesks:** Triage technical requests by urgency
 - **Operations:** Track ticket volumes and trends by category
 
+
+▶️ Run Locally
+git clone https://github.com/ravikiranediga/support-ticket-classification-prioritization.git
+cd support-ticket-classification-prioritization
+pip install -r requirements.txt
+streamlit run app.py
+
 ---
 
 ## 📄 License
@@ -367,4 +329,3 @@ MIT License – Free for portfolio and educational use.
 
 **Built with production-ready practices:** modular architecture, proper evaluation, version control ready, comprehensive documentation.
 
-*Ready for your ML engineering portfolio.* 🚀
