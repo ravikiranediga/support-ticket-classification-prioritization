@@ -38,6 +38,12 @@ ML model that automatically predicts ticket **category** and **priority** from t
 | **F1-Score** | 22.4% | 24.4% |
 | **Baseline** (random) | 20% | 25% |
 
+### 📊 Model Performance
+
+While raw accuracy is modest (~22%), this is expected due to highly templated and low-signal dataset.
+
+The system is designed as a **decision-support tool**, not full automation, helping agents reduce manual effort and improve consistency.
+
 > System designed as **decision-support** (human-in-the-loop). Performance exceeds random baseline despite templated data with weak signal.
 
 ---
