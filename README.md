@@ -4,7 +4,7 @@
 
 End-to-end NLP pipeline that classifies support tickets into 5 categories and assigns priority levels. Built with Python, scikit-learn, and Streamlit.
 
----
+--
 
 🚀 Live Demo: https://your-app.streamlit.app  
 
