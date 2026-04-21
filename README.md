@@ -6,8 +6,6 @@ End-to-end NLP pipeline that classifies support tickets into 5 categories and as
 
 --
 
-🚀 Live Demo: https://your-app.streamlit.app  
-
 🎯 AI system that automatically classifies and prioritizes customer support tickets using NLP.
 
 ## 🎯 Problem & Solution
