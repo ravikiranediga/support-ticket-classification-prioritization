@@ -6,6 +6,10 @@ End-to-end NLP pipeline that classifies support tickets into 5 categories and as
 
 ---
 
+🚀 Live Demo: https://your-app.streamlit.app  
+
+🎯 AI system that automatically classifies and prioritizes customer support tickets using NLP.
+
 ## 🎯 Problem & Solution
 
 **The Challenge:**
@@ -15,6 +19,16 @@ Customer support teams manually sort hundreds of daily tickets, wasting time and
 ML model that automatically predicts ticket **category** and **priority** from text, enabling faster routing and consistent SLA assignment.
 
 ---
+
+## 🧠 How It Works
+
+1. User inputs support ticket text  
+2. Text is cleaned (lowercasing, stopwords removal)  
+3. Converted into numerical features using TF-IDF  
+4. Machine Learning model predicts:
+   - Ticket category
+   - Priority level  
+5. Result displayed in UI  
 
 ## 📊 Results
 
@@ -111,17 +125,16 @@ Support_Ticket_Classification_Prioritization/
 
 ## 📈 Performance Summary
 
-### Ticket Type Classification
-```
-Classes: Billing inquiry, Cancellation request, Product inquiry,
-         Refund request, Technical issue
-Accuracy: 22.4%
-```
+## 📂 Categories
+- Billing  
+- Technical Issue  
+- Account  
+- General Query  
 
-### Priority Prediction
-```
-Classes: Critical, High, Medium, Low
-Accuracy: 24.4%
+## ⚡ Priority Levels
+- High  
+- Medium  
+- Low  
 ```
 
 ### Cross-Validation
@@ -286,57 +299,6 @@ New Ticket (Subject + Description)
 
 ---
 
-## 🛠️ Development
-
-### Module Responsibilities
-
-| Module | Purpose |
-|--------|---------|
-| `config.py` | Central config: paths, hyperparameters, constants |
-| `preprocessing.py` | Text cleaning, tokenization, lemmatization, combine_ticket() |
-| `model.py` | TicketClassifier class: train, predict, save, load |
-| `train.py` | Training script: loads data, trains both models, saves outputs |
-| `app.py` | Streamlit UI: classification, performance, insights |
-
-### Key Functions
-
-**`preprocessing.py`:**
-- `clean_text()` – Lowercase, remove special chars, normalize whitespace
-- `preprocess_text()` – Tokenize, remove stopwords, lemmatize
-- `combine_ticket()` – Subject×2 + description (weighted combination)
-
-**`model.py`:**
-- `TicketClassifier.train()` – Fit TF-IDF + SVM pipeline
-- `TicketClassifier.predict()` – Single-ticket inference
-- `TicketClassifier.load()` – Deserialize saved model
-
-**`app.py`:**
-- `load_models()` – Cache-load both classifiers
-- `predict()` – Wrapper for inference
-- `get_recommendations()` – Action suggestions based on prediction
-
----
-
-## ⚙️ Configuration
-
-Edit `src/config.py` to customize:
-
-```python
-# TF-IDF parameters
-TFIDF_MAX_FEATURES = 3000      # vocabulary size
-TFIDF_NGRAM_RANGE = (1, 2)     # uni-grams + bi-grams
-
-# Train/test split
-TEST_SIZE = 0.2                # 80-20 split
-RANDOM_STATE = 42              # reproducibility
-
-# Target columns
-TARGET_TYPE = 'Ticket Type'
-TARGET_PRIORITY = 'Ticket Priority'
-```
-
----
-
 ## 📊 Visualizations
 
 ### Confusion Matrix – Ticket Type
@@ -349,8 +311,6 @@ Shows per-class accuracy, common misclassifications (Refund↔Cancellation).
 ```
 Shows priority distribution errors (High↔Medium common)
 ```
-
----
 
 ## 🔄 Retraining & Updates
 
@@ -368,16 +328,6 @@ python src/train.py
 # 3. Verify app loads new models
 streamlit run src/app.py
 ```
-
-### Model Versioning
-Keep old models as backups:
-```
-models/
-├── ticket_type_pipeline_v1.pkl
-├── ticket_type_pipeline_v2.pkl ← latest
-└── ticket_priority_pipeline_latest.pkl
-```
-
 ---
 
 ## ⚠️ Limitations & Future Work
@@ -396,15 +346,6 @@ models/
 5. **Sentiment integration** – Detect angry customers → bump priority
 6. **Active learning** – Human-in-the-loop feedback for uncertain predictions
 7. **Transformer models** – Fine-tune DistilBERT for richer semantics
-
----
-
-## 📖 Resources
-
-- **scikit-learn:** https://scikit-learn.org
-- **NLTK:** https://www.nltk.org
-- **Streamlit:** https://streamlit.io
-- **ML best practices:** https://scikit-learn.org/stable/modules/cross_validation.html
 
 ---
 
