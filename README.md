@@ -61,7 +61,6 @@ python src/train.py
 streamlit run src/app.py
 ```
 
-Open browser to **http://localhost:8501**
 
 ---
 
